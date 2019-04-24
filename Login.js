@@ -10,17 +10,15 @@ import axios from 'axios'
 
 export default class SignUp extends React.Component {
     state = {
-        firstName: '', lastName: '', password: '', email: ''
+        password: '', email: ''
     }
     onChangeText = (key, val) => {
         this.setState({[key]: val})
     }
     signUp = () => {
-        const {firstName, lastName, password, email} = this.state
+        const {password, email} = this.state
 
-        axios.post('https://baf3242e.ngrok.io/clients-api/register', {
-            firstName: firstName,
-            lastName: lastName,
+        axios.post('https://baf3242e.ngrok.io/clients-api/sign-in', {
             email: email,
             password: password
         })
@@ -28,10 +26,10 @@ export default class SignUp extends React.Component {
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }
+                this.props.navigation.navigate('MainScreen')
 
-                return response;
             })
-            .catch(e => console.error(e))
+            //.catch(e => console.error(e))
     }
 
 
@@ -47,20 +45,6 @@ export default class SignUp extends React.Component {
                 resizeMode={`cover`}
             >
                 <View style={styles.container}>
-                    <TextInput
-                        style={styles.input}
-                        placeholder='First Name'
-                        autoCapitalize="none"
-                        placeholderTextColor='black'
-                        onChangeText={val => this.onChangeText('firstName', val)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder='Last Name'
-                        autoCapitalize="none"
-                        placeholderTextColor='black'
-                        onChangeText={val => this.onChangeText('lastName', val)}
-                    />
                     <TextInput
                         style={styles.input}
                         placeholder='Email'

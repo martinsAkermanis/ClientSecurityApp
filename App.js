@@ -3,6 +3,8 @@ import {View, Text, Button, ImageBackground, StyleSheet} from 'react-native';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 import Details from './SignUp'
 import MainButton from "./Components/MainButton";
+import Login from "./Login";
+import MainScreen from "./MainScreen";
 
 class HomeScreen extends React.Component {
     render() {
@@ -93,6 +95,12 @@ const AppNavigator = createStackNavigator({
     },
     SignUp: {
         screen: Details,
+    },
+    Login: {
+        screen: Login,
+    },
+    MainScreen: {
+        screen: MainScreen,
     },
 }, {
     initialRouteName: 'Home',
