@@ -9,19 +9,19 @@ import {
 
 const styles = StyleSheet.create({
   s8a6106a1: {
-    color: `rgba(255, 255, 255, 1)`,
+    color: `white`,
     fontFamily: `Helvetica`,
     fontSize: 17,
     letterSpacing: 1,
     fontWeight: '100',
-
   },
   sb5d21fe5: {
     alignItems: `center`,
     borderRadius: 8,
     height: 50,
+    margin: 10,
     justifyContent: `center`,
-    backgroundColor: `rgba(145, 149, 156, 0.67)`,
+    backgroundColor: `#113a87`,
     shadowOpacity: 0.93,
     shadowColor: "rgba(0, 0, 0, 1)",
     shadowRadius: 0,

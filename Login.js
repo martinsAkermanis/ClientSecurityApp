@@ -8,28 +8,25 @@ import MainButton from "./Components/MainButton";
 import axios from 'axios'
 
 
-export default class SignUp extends React.Component {
+export default class Login extends React.Component {
     state = {
         password: '', email: ''
     }
     onChangeText = (key, val) => {
         this.setState({[key]: val})
     }
-    signUp = () => {
+    LogIn = () => {
         const {password, email} = this.state
 
-        axios.post('https://baf3242e.ngrok.io/clients-api/sign-in', {
-            email: email,
-            password: password
+        axios.post('https://c5ad1c4e.ngrok.io/clients-api/sign-in', {
+            email: "john3@doe.com",
+            password: "123456"
         })
             .then((response) => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
                 this.props.navigation.navigate('MainScreen')
 
             })
-            //.catch(e => console.error(e))
+            .catch(e => console.error(e))
     }
 
 
@@ -37,11 +34,7 @@ export default class SignUp extends React.Component {
         return (
             <ImageBackground
                 style={styles.backGround}
-                source={{
-                    uri:
-                        "https://storage.googleapis.com/laska-a5b9d.appspot.com/users/kfi6t754XUPtGEHOYRodwieiDNv2/apps/-LctOC4JePtoUdIRPnD_/f887b6c2.jpg",
-                    originalName: "night-1209938_1920.jpg"
-                }}
+                source={require('./images/night_1209938_1920.jpg')}
                 resizeMode={`cover`}
             >
                 <View style={styles.container}>
@@ -60,11 +53,10 @@ export default class SignUp extends React.Component {
                         placeholderTextColor='black'
                         onChangeText={val => this.onChangeText('password', val)}
                     />
-
                     <MainButton
                         style={styles.mainButton}
-                        title='Sign Up'
-                        onPress={this.signUp}
+                        title='Log In'
+                        onPress={this.LogIn}
                     />
                 </View>
             </ImageBackground>

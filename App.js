@@ -5,17 +5,16 @@ import Details from './SignUp'
 import MainButton from "./Components/MainButton";
 import Login from "./Login";
 import MainScreen from "./MainScreen";
+import Onboarding1 from "./Onboarding1";
+import Onboarding2 from "./Onboarding2";
+import Onboarding3 from "./Onboarding3";
 
 class HomeScreen extends React.Component {
     render() {
         return (
                 <ImageBackground
                     style={styles.backGround}
-                    source={{
-                        uri:
-                            "https://storage.googleapis.com/laska-a5b9d.appspot.com/users/kfi6t754XUPtGEHOYRodwieiDNv2/apps/-LctOC4JePtoUdIRPnD_/f887b6c2.jpg",
-                        originalName: "night-1209938_1920.jpg"
-                    }}
+                    source={require('./images/night_1209938_1920.jpg')}
                     resizeMode={`cover`}
                 >
                     <View style={styles.s0bfa086f}/>
@@ -101,6 +100,15 @@ const AppNavigator = createStackNavigator({
     },
     MainScreen: {
         screen: MainScreen,
+    },
+    Onboarding1: {
+        screen: Onboarding1
+    },
+    Onboarding2: {
+        screen: Onboarding2
+    },
+    Onboarding3: {
+        screen: Onboarding3
     },
 }, {
     initialRouteName: 'Home',

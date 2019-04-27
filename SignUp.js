@@ -2,7 +2,7 @@ import React from 'react'
 import {
     View,
     TextInput,
-    StyleSheet, ImageBackground
+    StyleSheet, ImageBackground, Image
 } from 'react-native'
 import MainButton from "./Components/MainButton";
 import axios from 'axios'
@@ -18,18 +18,14 @@ export default class SignUp extends React.Component {
     signUp = () => {
         const {firstName, lastName, password, email} = this.state
 
-        axios.post('https://baf3242e.ngrok.io/clients-api/register', {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password
+        axios.post('https://c5ad1c4e.ngrok.io/clients-api/register', {
+            firstName: "John",
+            lastName: "Doe",
+            email: "John3@Doe.com",
+            password: "123456"
         })
             .then((response) => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-
-                return response;
+                    this.props.navigation.navigate('Onboarding1')
             })
             .catch(e => console.error(e))
     }
@@ -39,11 +35,7 @@ export default class SignUp extends React.Component {
         return (
             <ImageBackground
                 style={styles.backGround}
-                source={{
-                    uri:
-                        "https://storage.googleapis.com/laska-a5b9d.appspot.com/users/kfi6t754XUPtGEHOYRodwieiDNv2/apps/-LctOC4JePtoUdIRPnD_/f887b6c2.jpg",
-                    originalName: "night-1209938_1920.jpg"
-                }}
+                source={require('./images/night_1209938_1920.jpg')}
                 resizeMode={`cover`}
             >
                 <View style={styles.container}>
