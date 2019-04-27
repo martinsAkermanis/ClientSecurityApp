@@ -18,7 +18,7 @@ export default class Login extends React.Component {
     LogIn = () => {
         const {password, email} = this.state
 
-        axios.post('https://c5ad1c4e.ngrok.io/clients-api/sign-in', {
+        axios.post('https://6dd6c3eb.ngrok.io/clients-api/sign-in', {
             email: "john3@doe.com",
             password: "123456"
         })

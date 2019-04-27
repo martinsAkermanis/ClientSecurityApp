@@ -18,7 +18,7 @@ export default class SignUp extends React.Component {
     signUp = () => {
         const {firstName, lastName, password, email} = this.state
 
-        axios.post('https://c5ad1c4e.ngrok.io/clients-api/register', {
+        axios.post('https://6dd6c3eb.ngrok.io/clients-api/register', {
             firstName: "John",
             lastName: "Doe",
             email: "John3@Doe.com",

@@ -136,7 +136,7 @@ class Main extends React.PureComponent {
     }
 
     sendLocation = () => {
-        axios.post('https://c5ad1c4e.ngrok.io/clients-api/incident', {
+        axios.post('https://6dd6c3eb.ngrok.io/clients-api/incident', {
             latitude: this.state.currentLatitude,
             longitude: this.state.currentLongitude,
         }).then((response) => {
@@ -167,14 +167,14 @@ class Main extends React.PureComponent {
                 <View style={styles.View}>
                     <Text style={styles.GPS}>{'Your current GPS location is:'}</Text>
                     <Text style={styles.latitude}>
-                        Latitude: {this.state.currentLatitude}</Text>
+                        LATITUDE: {this.state.currentLatitude}</Text>
                     <Text style={styles.longitude}>
-                        Longitude: {this.state.currentLongitude}</Text>
+                        LONGITUDE: {this.state.currentLongitude}</Text>
                     <Text style={styles.address}>{'Your current address is:'}</Text>
                     <Text style={styles.city}>
-                        City: {this.state.city}</Text>
+                        CITY: {this.state.city}</Text>
                     <Text style={styles.road}>
-                        Street: {this.state.road}</Text>
+                        STREET: {this.state.road}</Text>
                     <MainButton2
                         style={styles.mainButton}
                         title='REPORT INCIDENT'
@@ -212,37 +212,39 @@ const styles = StyleSheet.create({
         textAlign: `center`,
         fontSize: 18,
         marginTop: 20,
-        marginBottom: 20
+        marginBottom: 20,
+        color: '#41454c',
     },
     latitude: {
         letterSpacing: 1,
-        backgroundColor: `rgba(0, 0, 0, 0.1)`,
         marginTop: 5,
-        textAlign: `left`
+        textAlign: `left`,
+        color: 'black'
     },
     longitude: {
         letterSpacing: 1,
-        backgroundColor: `rgba(0, 0, 0, 0.08)`,
         marginTop: 5,
+        color: 'black',
     },
     address: {
         textAlign: `center`,
         fontSize: 18,
         marginTop: 30,
-        marginBottom: 20
+        marginBottom: 20,
+        color: '#41454c',
 
     },
     city: {
         letterSpacing: 1,
-        backgroundColor: `rgba(0, 0, 0, 0.1)`,
         fontSize: 14,
-        position: `relative`
+        position: `relative`,
+        color: 'black',
     },
     road: {
         letterSpacing: 1,
-        backgroundColor: `rgba(0, 0, 0, 0.1)`,
         marginTop: 5,
-        marginBottom: 40
+        marginBottom: 40,
+        color: 'black',
     },
     buttonStatus: {
         textAlign: `left`,
