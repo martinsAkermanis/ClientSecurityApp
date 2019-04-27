@@ -7,30 +7,7 @@ import {
   StyleSheet
 } from "react-native";
 
-const styles = StyleSheet.create({
-  s8a6106a1: {
-    color: `rgba(255, 255, 255, 1)`,
-    fontFamily: `Helvetica`,
-    fontSize: 17,
-    letterSpacing: 1,
-    fontWeight: '100',
 
-  },
-  sb5d21fe5: {
-    alignItems: `center`,
-    borderRadius: 8,
-    height: 50,
-    justifyContent: `center`,
-    backgroundColor: `rgba(145, 149, 156, 0.67)`,
-    shadowOpacity: 0.93,
-    shadowColor: "rgba(0, 0, 0, 1)",
-    shadowRadius: 0,
-    shadowOffset: {
-      width: 0,
-      height: 0
-    }
-  }
-});
 
 class MainButton extends React.PureComponent {
   render() {
@@ -78,6 +55,30 @@ MainButton.defaultProps = {
   onPress: () => {},
   loading: false
 };
+const styles = StyleSheet.create({
+  s8a6106a1: {
+    color: `rgba(255, 255, 255, 1)`,
+    fontFamily: `Helvetica`,
+    fontSize: 17,
+    letterSpacing: 1,
+    fontWeight: '100',
+
+  },
+  sb5d21fe5: {
+    alignItems: `center`,
+    borderRadius: 8,
+    height: 50,
+    justifyContent: `center`,
+    backgroundColor: `rgba(145, 149, 156, 0.67)`,
+    shadowOpacity: 0.93,
+    shadowColor: "rgba(0, 0, 0, 1)",
+    shadowRadius: 0,
+    shadowOffset: {
+      width: 0,
+      height: 0
+    }
+  }
+});
 
 export default MainButton;
 

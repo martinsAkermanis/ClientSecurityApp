@@ -2,7 +2,7 @@ import React from 'react'
 import {
     View,
     TextInput,
-    StyleSheet, ImageBackground, Image
+    StyleSheet, ImageBackground, Image, Alert
 } from 'react-native'
 import MainButton from "./Components/MainButton";
 import axios from 'axios'
@@ -15,19 +15,24 @@ export default class SignUp extends React.Component {
     onChangeText = (key, val) => {
         this.setState({[key]: val})
     }
+    badlert = (text) => {
+        Alert.alert(
+            "Looks like this e-mail is already registered!"
+        )
+    }
     signUp = () => {
         const {firstName, lastName, password, email} = this.state
 
-        axios.post('https://6dd6c3eb.ngrok.io/clients-api/register', {
-            firstName: "John",
-            lastName: "Doe",
-            email: "John3@Doe.com",
-            password: "123456"
+        axios.post('https://6319e5f5.ngrok.io/clients-api/register', {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password
         })
             .then((response) => {
                     this.props.navigation.navigate('Onboarding1')
             })
-            .catch(e => console.error(e))
+            .catch(e => this.badlert())
     }
 
 

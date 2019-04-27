@@ -23,9 +23,21 @@ class Main extends React.PureComponent {
         road: "---",
     }
 
+    SignOutAlert = () => {
+        // Works on both iOS and Android
+        Alert.alert(
+            'Sign Out',
+            'Do You Really Want To Sign Out?',
+            [
+                {text: 'OK', onPress: () => this.logOut()},
+            ],
+            {cancelable: false},
+        );
+    }
+
     goodAlert = () => {
         Alert.alert(
-           "Successfully sent incident!"
+            "Incident sent successfully!"
         )
     }
 
@@ -123,20 +135,15 @@ class Main extends React.PureComponent {
             });
     }
 
-    getLoginStatus = () => {
-        axios.get('https://c5ad1c4e.ngrok.io/clients-api/account', {}).then((response) => {
-            console.log(response)
-            if (!response.ok) {
-                console.log("ERROR: " + response.statusText);
-                throw Error(response.statusText);
-            }
-            return response;
+    logOut = () => {
+        axios.post('https://6319e5f5.ngrok.io/clients-api/sign-out', {}).then((response) => {
+            this.props.navigation.navigate('SignUp')
         })
-            .catch(e => console.error(e));
     }
 
+
     sendLocation = () => {
-        axios.post('https://6dd6c3eb.ngrok.io/clients-api/incident', {
+        axios.post('https://6319e5f5.ngrok.io/clients-api/incident', {
             latitude: this.state.currentLatitude,
             longitude: this.state.currentLongitude,
         }).then((response) => {
@@ -149,7 +156,7 @@ class Main extends React.PureComponent {
 
     call = () => {
         const args = {
-            number: '112',
+            number: '+37129797471',
             prompt: true,
         };
 
@@ -180,15 +187,15 @@ class Main extends React.PureComponent {
                         title='REPORT INCIDENT'
                         onPress={this.sendLocation}
                     />
-                    <Button style={styles.buttonStatus}
-                            title='Click here to get request status'
-                            onPress={this.alert}>
-                    </Button>
                     <MainButton3
                         title={'Call 112'}
                         textContent={`CALL 112`}
-                        onPress={this.alert}
+                        onPress={this.call}
                     />
+                    <Button style={styles.buttonStatus}
+                            title='Click here to log out'
+                            onPress={this.SignOutAlert}>
+                    </Button>
                 </View>
             </ImageBackground>
         );

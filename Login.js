@@ -2,7 +2,7 @@ import React from 'react'
 import {
     View,
     TextInput,
-    StyleSheet, ImageBackground
+    StyleSheet, ImageBackground, Text, Alert
 } from 'react-native'
 import MainButton from "./Components/MainButton";
 import axios from 'axios'
@@ -15,20 +15,24 @@ export default class Login extends React.Component {
     onChangeText = (key, val) => {
         this.setState({[key]: val})
     }
+    badlert = () => {
+        Alert.alert(
+            "Bro', check your creds!"
+        )
+    }
     LogIn = () => {
         const {password, email} = this.state
 
-        axios.post('https://6dd6c3eb.ngrok.io/clients-api/sign-in', {
-            email: "john3@doe.com",
-            password: "123456"
+        axios.post('https://6319e5f5.ngrok.io/clients-api/sign-in', {
+            email: email,
+            password: password
         })
             .then((response) => {
                 this.props.navigation.navigate('MainScreen')
 
             })
-            .catch(e => console.error(e))
+            .catch(e => this.badlert())
     }
-
 
     render() {
         return (
@@ -62,6 +66,8 @@ export default class Login extends React.Component {
             </ImageBackground>
         )
     }
+
+
 }
 
 const styles = StyleSheet.create({
