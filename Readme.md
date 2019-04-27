@@ -1,4 +1,5 @@
 
+== created by Martins Akermanis using React-Native ==
 
 Cross platform mobile app with following functionalities:
 
